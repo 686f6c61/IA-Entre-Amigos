@@ -3,7 +3,129 @@ import Slide from './Slide.astro';
 ---
 
 <!-- SLIDE 21 -->
-<Slide id="multi-modelo" number={21} title="Multi-modelo: usar varios modelos y stack de orquestación">
+<Slide id="arquitecturas-agentes" number={21} title="Arquitecturas de agentes: el bucle fundamental">
+  <p>Un agente no es solo un modelo que responde. Es un <strong>sistema que razona, actúa y aprende del resultado</strong> en un bucle continuo.</p>
+  <h3><i data-lucide="repeat"></i> El bucle ReAct (Reason + Act)</h3>
+  <div class="flow">
+    <span class="flow-step">Observar</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Razonar (CoT)</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Actuar (tool call)</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Observar resultado</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Repetir</span>
+  </div>
+  <p>El agente <strong>piensa en voz alta</strong> (chain of thought), decide qué herramienta usar, ejecuta, lee el resultado y decide el siguiente paso. Este patrón (ReAct, 2022) es la base de casi todos los agentes actuales.</p>
+  <h3><i data-lucide="git-branch"></i> Variantes del bucle</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="list-ordered"></i>
+      <div class="icon-card-content">
+        <strong>Plan-and-Execute</strong>
+        <p>Primero planifica todos los pasos, luego los ejecuta uno a uno. Más predecible, menos flexible ante imprevistos</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="refresh-cw"></i>
+      <div class="icon-card-content">
+        <strong>Reflexion</strong>
+        <p>Tras actuar, el agente evalúa su propio resultado y decide si repetir con otro enfoque. Autocorrección explícita</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="wrench"></i>
+      <div class="icon-card-content">
+        <strong>Tool-augmented</strong>
+        <p>El modelo elige entre herramientas disponibles (buscar, calcular, ejecutar código). Es el patrón que usan Claude Code, ChatGPT y Gemini</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="brain"></i>
+      <div class="icon-card-content">
+        <strong>Chain of Thought (CoT)</strong>
+        <p>El modelo razona paso a paso antes de actuar. No es un agente en sí, pero es la base del razonamiento de todos los agentes</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> En la práctica</p>
+    <p>La mayoría de agentes reales combinan estos patrones: planifican (Plan-and-Execute), razonan paso a paso (CoT), usan herramientas (Tool-augmented) y se autocorrigen (Reflexion).</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://arxiv.org/abs/2210.03629" target="_blank">ReAct: Synergizing Reasoning and Acting (2022)</a>
+    <a href="https://arxiv.org/abs/2303.11366" target="_blank">Reflexion: Language Agents with Verbal Reinforcement Learning (2023)</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 22 -->
+<Slide id="patrones-agentes" number={22} title="Patrones de diseño de sistemas de agentes">
+  <p>Los bloques fundamentales para construir sistemas de agentes, según la guía de <strong>Anthropic "Building Effective Agents"</strong>:</p>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="link"></i>
+      <div class="icon-card-content">
+        <strong>Prompt chaining</strong>
+        <p>Secuencia de llamadas donde la salida de una es la entrada de la siguiente. Cada paso puede tener una comprobación (gate) antes de continuar</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="route"></i>
+      <div class="icon-card-content">
+        <strong>Routing</strong>
+        <p>Un clasificador analiza la entrada y la dirige al agente o prompt especializado. Cada ruta maneja un tipo de tarea diferente</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="git-merge"></i>
+      <div class="icon-card-content">
+        <strong>Parallelization</strong>
+        <p>Dividir la tarea en subtareas independientes, ejecutarlas en paralelo y combinar resultados. También: múltiples agentes votan la mejor respuesta</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="users"></i>
+      <div class="icon-card-content">
+        <strong>Orchestrator-workers</strong>
+        <p>Un agente central descompone la tarea dinámicamente, delega a workers especializados y sintetiza los resultados</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="refresh-cw"></i>
+      <div class="icon-card-content">
+        <strong>Evaluator-optimizer</strong>
+        <p>Un agente genera, otro evalúa. El ciclo se repite hasta alcanzar calidad suficiente. Ideal para código, textos y traducciones</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="compass"></i> ¿Cuándo usar cada uno?</h3>
+  <table>
+    <thead>
+      <tr><th>Patrón</th><th>Caso de uso</th><th>Complejidad</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Prompt chaining</strong></td><td>Pipelines de procesamiento con pasos fijos</td><td>Baja</td></tr>
+      <tr><td><strong>Routing</strong></td><td>Soporte al cliente, clasificación de intención</td><td>Baja</td></tr>
+      <tr><td><strong>Parallelization</strong></td><td>Análisis de documentos, votación, velocidad</td><td>Media</td></tr>
+      <tr><td><strong>Orchestrator-workers</strong></td><td>Tareas complejas con subtareas variables</td><td>Alta</td></tr>
+      <tr><td><strong>Evaluator-optimizer</strong></td><td>Calidad iterativa, code review, traducciones</td><td>Alta</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> Principio clave</p>
+    <p>Empieza con el patrón más simple que resuelva tu problema. La complejidad de un sistema multiagente solo se justifica cuando un agente solo no puede con la tarea.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">Anthropic - Building Effective Agents</a>
+    <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">OpenAI - A Practical Guide to Building Agents</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 23 -->
+<Slide id="multi-modelo" number={23} title="Multi-modelo: usar varios modelos y stack de orquestación">
   <p>No todos los modelos son iguales ni cuestan lo mismo. La clave es usar el <strong>modelo adecuado para cada tarea</strong>.</p>
   <h3><i data-lucide="route"></i> Patrón de routing</h3>
   <div class="flow">
@@ -36,8 +158,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 22 -->
-<Slide id="patrones-orquestacion" number={22} title="Patrones de orquestación en OpenAI y Claude">
+<!-- SLIDE 24 -->
+<Slide id="patrones-orquestacion" number={24} title="Patrones de orquestación en OpenAI y Claude">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="bot"></i> OpenAI Agents SDK</h3>
@@ -74,8 +196,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 23 -->
-<Slide id="orquestacion" number={23} title="Sistemas de orquestación de agentes">
+<!-- SLIDE 25 -->
+<Slide id="orquestacion" number={25} title="Sistemas de orquestación de agentes">
   <p>Coordinan <strong>múltiples agentes</strong> para resolver problemas complejos. Un agente solo no puede con todo: necesitas especialización, división de tareas y coordinación.</p>
   <h3><i data-lucide="network"></i> Patrones principales</h3>
   <div class="icon-grid">
@@ -118,8 +240,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 24 -->
-<Slide id="orquestadores-adks" number={24} title="¿Cuáles hay? (orquestadores y ADKs)">
+<!-- SLIDE 26 -->
+<Slide id="orquestadores-adks" number={26} title="¿Cuáles hay? (orquestadores y ADKs)">
   <div class="compare-card">
     <p class="compare-card-title"><i data-lucide="link"></i> LangChain + LangGraph <span class="tag">v1.0</span> <span class="tag">Python</span> <span class="tag">JS</span></p>
     <p class="compare-card-desc">El veterano. LangChain para construir agentes, LangGraph para orquestarlos con grafos de estado. Persistencia durable, human-in-the-loop.</p>
@@ -160,8 +282,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 25 -->
-<Slide id="claude-code-estructura" number={25} title="Estructura de un agente sobre Claude Code">
+<!-- SLIDE 27 -->
+<Slide id="claude-code-estructura" number={27} title="Estructura de un agente sobre Claude Code">
   <div class="icon-grid">
     <div class="icon-card">
       <i data-lucide="file-text"></i>
@@ -220,8 +342,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 26 -->
-<Slide id="mcp" number={26} title="MCP (Model Context Protocol): el estándar que conecta modelos con el mundo">
+<!-- SLIDE 28 -->
+<Slide id="mcp" number={28} title="MCP (Model Context Protocol): el estándar que conecta modelos con el mundo">
   <p><i data-lucide="plug"></i> Un protocolo abierto (creado por Anthropic, adoptado por la industria) que estandariza cómo un modelo se conecta con <strong>herramientas externas</strong>.</p>
   <div class="analogy">
     <p class="analogy-label"><i data-lucide="lightbulb"></i> Analogía</p>
@@ -246,8 +368,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 27 -->
-<Slide id="ide-terminal" number={27} title="IDE web vs terminal: ¿dónde usar la IA?">
+<!-- SLIDE 29 -->
+<Slide id="ide-terminal" number={29} title="IDE web vs terminal: ¿dónde usar la IA?">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="monitor"></i> IDEs web (chat)</h3>
@@ -311,8 +433,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 28 -->
-<Slide id="agente-vs-prompt" number={28} title="¿Cuándo usar un agente y no un prompt?">
+<!-- SLIDE 30 -->
+<Slide id="agente-vs-prompt" number={30} title="¿Cuándo usar un agente y no un prompt?">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="message-square"></i> Usa un prompt cuando</h3>
@@ -344,8 +466,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 29 -->
-<Slide id="seguridad" number={29} title="Seguridad y riesgos">
+<!-- SLIDE 31 -->
+<Slide id="seguridad" number={31} title="Seguridad y riesgos">
   <div class="icon-grid">
     <div class="icon-card">
       <i data-lucide="shield-alert"></i>
@@ -429,8 +551,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 30 -->
-<Slide id="costes" number={30} title="Tokens y coste: ¿cuánto cuesta usar IA?">
+<!-- SLIDE 32 -->
+<Slide id="costes" number={32} title="Tokens y coste: ¿cuánto cuesta usar IA?">
   <p><i data-lucide="coins"></i> Se paga por <strong>tokens de entrada + tokens de salida</strong>. La salida suele ser más cara (el modelo trabaja más generando que leyendo).</p>
   <h3><i data-lucide="trending-up"></i> Precios por millón de tokens (marzo 2026)</h3>
   <table>
@@ -464,8 +586,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 31 -->
-<Slide id="cambio-paradigma" number={31} title="El cambio de paradigma en el trabajo del ingeniero">
+<!-- SLIDE 33 -->
+<Slide id="cambio-paradigma" number={33} title="El cambio de paradigma en el trabajo del ingeniero">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="trending-up"></i> Lo que cambia</h3>
@@ -515,8 +637,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 32 -->
-<Slide id="recursos" number={32} title="Recursos y siguiente paso">
+<!-- SLIDE 34 -->
+<Slide id="recursos" number={34} title="Recursos y siguiente paso">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="book-open"></i> Cursos y guías</h3>
@@ -556,8 +678,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 33 -->
-<Slide id="demo" number={33} title="Demo (por definir)">
+<!-- SLIDE 35 -->
+<Slide id="demo" number={35} title="Demo (por definir)">
   <div class="callout" style="text-align: center; padding: 4rem 0;">
     <p class="callout-title"><i data-lucide="rocket"></i> Demo en vivo</p>
     <p style="font-size: 1.5rem; font-weight: 300;">Esta sección se definirá al final del workshop.</p>
