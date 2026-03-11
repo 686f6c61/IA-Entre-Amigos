@@ -2,8 +2,8 @@
 import Slide from './Slide.astro';
 ---
 
-<!-- SLIDE 11 -->
-<Slide id="moe-ninos" number={11} title="¿Cómo funciona MoE?">
+<!-- SLIDE 16 -->
+<Slide id="moe-ninos" number={16} title="¿Cómo funciona MoE?">
   <div class="analogy">
     <p class="analogy-label"><i data-lucide="route"></i> Analogía</p>
     <p>Imagina un <strong>hospital con médicos especialistas</strong>. Cuando llegas con dolor de muelas, no te atienden todos los médicos: te mandan al dentista. El recepcionista (router) decide a qué especialista mandarte según tu problema.</p>
@@ -25,67 +25,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 12 -->
-<Slide id="llm" number={12} title="¿Qué es un modelo LLM?">
-  <p><i data-lucide="brain"></i> <strong>Large Language Model</strong>: un modelo de lenguaje a gran escala. Entrenado con cantidades masivas de texto (internet, libros, código...) para predecir el siguiente token dada una secuencia.</p>
-  <div class="icon-grid">
-    <div class="icon-card">
-      <i data-lucide="file-text"></i>
-      <div class="icon-card-content">
-        <strong>Generación de texto</strong>
-        <p>Redacción, resumen, traducción, reformulación de contenido</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="brain"></i>
-      <div class="icon-card-content">
-        <strong>Razonamiento</strong>
-        <p>Lógica, matemáticas, análisis, resolución de problemas complejos</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="code"></i>
-      <div class="icon-card-content">
-        <strong>Código</strong>
-        <p>Generación, depuración, refactorización en múltiples lenguajes</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="globe"></i>
-      <div class="icon-card-content">
-        <strong>Multilingüe</strong>
-        <p>Comprensión y generación en decenas de idiomas simultáneamente</p>
-      </div>
-    </div>
-  </div>
-  <h3><i data-lucide="database"></i> Modelos principales (marzo 2026)</h3>
-  <table>
-    <thead>
-      <tr><th>Modelo</th><th>Empresa</th><th>Context window</th><th>Tipo</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Claude Opus 4.6</strong></td><td>Anthropic</td><td>200k tokens</td><td>Propietario</td></tr>
-      <tr><td><strong>Claude Sonnet 4.6</strong></td><td>Anthropic</td><td>200k tokens</td><td>Propietario</td></tr>
-      <tr><td><strong>GPT-5.2</strong></td><td>OpenAI</td><td>128k tokens</td><td>Propietario</td></tr>
-      <tr><td><strong>Gemini 3</strong></td><td>Google</td><td>1M+ tokens</td><td>Propietario</td></tr>
-      <tr><td><strong>Llama 3</strong></td><td>Meta</td><td>128k tokens</td><td>Open source</td></tr>
-      <tr><td><strong>Mistral / Mixtral</strong></td><td>Mistral AI</td><td>32-128k tokens</td><td>Open source</td></tr>
-      <tr><td><strong>Qwen</strong></td><td>Alibaba</td><td>128k tokens</td><td>Open source</td></tr>
-    </tbody>
-  </table>
-  <div class="callout">
-    <p class="callout-title"><i data-lucide="layers"></i> Idea clave</p>
-    <p>El modelo no "sabe" cosas: calcula probabilidades sobre patrones aprendidos. La escala importa: capacidades emergentes aparecen con más parámetros. Pero más grande no siempre es mejor para tu caso de uso.</p>
-  </div>
-  <div class="refs">
-    <p class="refs-title">Para profundizar</p>
-    <a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank">Wikipedia - Large Language Model</a>
-    <a href="https://arxiv.org/abs/2303.18223" target="_blank">A Survey of Large Language Models (paper)</a>
-  </div>
-</Slide>
-
-<!-- SLIDE 13 -->
-<Slide id="parametros" number={13} title="Parámetros de configuración de un modelo">
+<!-- SLIDE 17 -->
+<Slide id="parametros" number={17} title="Parámetros de configuración de un modelo">
   <h3><i data-lucide="sliders-horizontal"></i> Parámetros principales</h3>
   <table>
     <thead>
@@ -121,10 +62,10 @@ import Slide from './Slide.astro';
     <p><strong>temperature 0-0.3:</strong> código, datos, respuestas factuales. <strong>temperature 0.5-0.7:</strong> redacción equilibrada. <strong>temperature 0.8+:</strong> escritura creativa, brainstorming. Regla general: ajusta <code>temperature</code> O <code>top_p</code>, no ambos a la vez.</p>
   </div>
   <div class="analogy">
-    <p class="analogy-label">Analogia</p>
+    <p class="analogy-label">Analogía</p>
     <p><code>temperature</code> es "cuanto riesgo toma al elegir la siguiente palabra". Un valor bajo es conservador (elige lo seguro), un valor alto es atrevido (puede sorprender o desvariar).</p>
   </div>
-  <h3><i data-lucide="target"></i> ¿Que hace top_p (nucleus sampling)?</h3>
+  <h3><i data-lucide="target"></i> ¿Qué hace top_p (nucleus sampling)?</h3>
   <p>Imagina que el modelo ha calculado las probabilidades de los siguientes tokens posibles:</p>
   <table>
     <thead>
@@ -134,33 +75,238 @@ import Slide from './Slide.astro';
       <tr><td><strong>"hola"</strong></td><td>0.40</td><td>0.40</td><td>Si</td></tr>
       <tr><td><strong>"buenos"</strong></td><td>0.30</td><td>0.70</td><td>Si</td></tr>
       <tr><td><strong>"saludos"</strong></td><td>0.15</td><td>0.85</td><td>Si</td></tr>
-      <tr><td><strong>"hey"</strong></td><td>0.08</td><td>0.93</td><td>Si (supera 0.9 aqui)</td></tr>
+      <tr><td><strong>"hey"</strong></td><td>0.08</td><td>0.93</td><td>Si (supera 0.9 aquí)</td></tr>
       <tr><td><strong>"estimado"</strong></td><td>0.04</td><td>0.97</td><td>No (ya se paso de 0.9)</td></tr>
       <tr><td><strong>"querido"</strong></td><td>0.03</td><td>1.00</td><td>No</td></tr>
     </tbody>
   </table>
-  <p>Con <code>top_p=0.9</code> solo se consideran los tokens cuya probabilidad acumulada no supere el 90%. Se descartan los menos probables ("estimado", "querido") y se elige entre los restantes. Cuanto menor el valor, mas conservador: <code>top_p=0.1</code> solo elige entre el top 10% de probabilidad.</p>
-  <h3><i data-lucide="layers"></i> ¿Que hace top_k?</h3>
-  <p>Mas simple: solo mira los <strong>k tokens mas probables</strong>, independientemente de cuanta probabilidad acumulen.</p>
+  <p>Con <code>top_p=0.9</code> solo se consideran los tokens cuya probabilidad acumulada no supere el 90%. Se descartan los menos probables ("estimado", "querido") y se elige entre los restantes. Cuanto menor el valor, más conservador: <code>top_p=0.1</code> solo elige entre el top 10% de probabilidad.</p>
+  <h3><i data-lucide="layers"></i> ¿Qué hace top_k?</h3>
+  <p>Más simple: solo mira los <strong>k tokens más probables</strong>, independientemente de cuánta probabilidad acumulen.</p>
   <ul>
-    <li><code>top_k=1</code>: siempre elige el token mas probable (greedy, casi determinista)</li>
-    <li><code>top_k=10</code>: elige entre los 10 mas probables</li>
+    <li><code>top_k=1</code>: siempre elige el token más probable (greedy, casi determinista)</li>
+    <li><code>top_k=10</code>: elige entre los 10 más probables</li>
     <li><code>top_k=50</code>: bastante diverso, 50 candidatos</li>
-    <li><code>top_k=0</code> o sin limite: considera todos los tokens del vocabulario</li>
+    <li><code>top_k=0</code> o sin límite: considera todos los tokens del vocabulario</li>
   </ul>
   <div class="callout">
     <p class="callout-title"><i data-lucide="lightbulb"></i> Diferencia clave entre top_p y top_k</p>
-    <p><code>top_k</code> siempre mira un numero fijo de candidatos. <code>top_p</code> es adaptativo: si un token tiene el 95% de probabilidad, con <code>top_p=0.9</code> solo ese entra (1 candidato). Si las probabilidades estan repartidas, pueden entrar muchos. Por eso <code>top_p</code> suele dar mejores resultados: se adapta a cada prediccion.</p>
+    <p><code>top_k</code> siempre mira un número fijo de candidatos. <code>top_p</code> es adaptativo: si un token tiene el 95% de probabilidad, con <code>top_p=0.9</code> solo ese entra (1 candidato). Si las probabilidades están repartidas, pueden entrar muchos. Por eso <code>top_p</code> suele dar mejores resultados: se adapta a cada predicción.</p>
   </div>
   <div class="refs">
     <p class="refs-title">Para profundizar</p>
-    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic - Prompt Engineering</a>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic - Prompt Engineering</a>
     <a href="https://platform.openai.com/docs/api-reference/chat/create" target="_blank">OpenAI - API Reference (Chat)</a>
   </div>
 </Slide>
 
-<!-- SLIDE 14 -->
-<Slide id="prompt-engineering" number={14} title="Prompt engineering: cómo hablarle bien al modelo">
+<!-- SLIDE 18 -->
+<Slide id="razonamiento" number={18} title="Modelos de razonamiento (thinking models)">
+  <p><i data-lucide="brain"></i> Algunos modelos pueden <strong>"pensar antes de responder"</strong>. Usan tokens internos de razonamiento (thinking tokens) que no se muestran al usuario pero mejoran la calidad en tareas complejas.</p>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="lightbulb"></i>
+      <div class="icon-card-content">
+        <strong>Extended thinking</strong>
+        <p>Claude: el modelo razona paso a paso internamente antes de dar la respuesta. Puedes ver el proceso de pensamiento</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="brain"></i>
+      <div class="icon-card-content">
+        <strong>Reasoning models</strong>
+        <p>o1/o3 de OpenAI: modelos entrenados específicamente para razonar. Más lentos pero mejores en matemáticas, lógica y código complejo</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="coins"></i>
+      <div class="icon-card-content">
+        <strong>Thinking tokens</strong>
+        <p>Tokens que el modelo usa para razonar pero que no aparecen en la respuesta final. Se pagan igualmente y cuentan para el context window</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="scale"></i>
+      <div class="icon-card-content">
+        <strong>Trade-offs</strong>
+        <p>Más lentos y caros. No siempre mejores: para tareas simples, un modelo estándar es más rápido y barato</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="table"></i> ¿Cuándo usar thinking vs estándar?</h3>
+  <table>
+    <thead>
+      <tr><th>Tarea</th><th>Recomendación</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Tarea simple de texto</td><td>Estándar</td></tr>
+      <tr><td>Matemáticas complejas</td><td>Thinking</td></tr>
+      <tr><td>Código con lógica compleja</td><td>Thinking</td></tr>
+      <tr><td>Resumen / traducción</td><td>Estándar</td></tr>
+      <tr><td>Análisis multi-paso</td><td>Thinking</td></tr>
+      <tr><td>Chat rápido</td><td>Estándar</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="target"></i> Regla práctica</p>
+    <p>Usa modelos de razonamiento cuando la tarea requiere planificación, lógica multi-paso o análisis profundo. Para todo lo demás, un modelo estándar (Sonnet, GPT-5.2) es más eficiente.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/extended-thinking" target="_blank">Anthropic - Extended Thinking docs</a>
+    <a href="https://platform.openai.com/docs/guides/reasoning" target="_blank">OpenAI - Reasoning models docs</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 19 -->
+<Slide id="open-vs-closed" number={19} title="Open source vs propietario: ¿cuál elegir?">
+  <p><i data-lucide="scale"></i> No todos los modelos son iguales ni se licencian igual. Entender la diferencia entre open source y propietario es clave para elegir la herramienta correcta.</p>
+  <h3><i data-lucide="database"></i> Modelos principales</h3>
+  <table>
+    <thead>
+      <tr><th>Modelo</th><th>Empresa</th><th>Tipo</th><th>Licencia</th><th>Punto fuerte</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Claude Opus/Sonnet</strong></td><td>Anthropic</td><td>Propietario</td><td>Comercial</td><td>Razonamiento y código</td></tr>
+      <tr><td><strong>GPT-5.2</strong></td><td>OpenAI</td><td>Propietario</td><td>Comercial</td><td>Multimodal y ecosistema</td></tr>
+      <tr><td><strong>Gemini 3</strong></td><td>Google</td><td>Propietario</td><td>Comercial</td><td>Contexto 1M+ y multimedia</td></tr>
+      <tr><td><strong>Llama 3</strong></td><td>Meta</td><td>Open source</td><td>Llama License</td><td>El más adoptado, fine-tuning fácil</td></tr>
+      <tr><td><strong>Mistral/Mixtral</strong></td><td>Mistral AI</td><td>Open source</td><td>Apache 2.0</td><td>MoE eficiente, buen rendimiento/coste</td></tr>
+      <tr><td><strong>Qwen 3</strong></td><td>Alibaba</td><td>Open source</td><td>Apache 2.0</td><td>Multilingüe, fuerte en chino</td></tr>
+      <tr><td><strong>Phi-4</strong></td><td>Microsoft</td><td>Open source</td><td>MIT</td><td>Pequeño pero potente, ideal para edge</td></tr>
+      <tr><td><strong>Gemma 3</strong></td><td>Google</td><td>Open source</td><td>Gemma License</td><td>Ligero, optimizado para móvil/edge</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="columns"></i> Propietario vs open source</h3>
+  <div class="two-cols">
+    <div class="compare-card">
+      <p class="compare-title"><i data-lucide="building"></i> Propietario</p>
+      <ul>
+        <li>Mejor rendimiento general</li>
+        <li>Más fácil de empezar (API)</li>
+        <li>Soporte empresarial y SLAs</li>
+        <li>No puedes ver ni modificar los pesos</li>
+        <li>Dependencia del proveedor</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <p class="compare-title"><i data-lucide="github"></i> Open source</p>
+      <ul>
+        <li>Ejecutar en tu infraestructura</li>
+        <li>Privacidad total: datos nunca salen</li>
+        <li>Personalizar: fine-tuning, quantizar, modificar</li>
+        <li>Sin coste de licencia (pagas compute)</li>
+        <li>Más control, más responsabilidad</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="compass"></i> ¿Cómo elegir?</p>
+    <p>Si necesitas máximo rendimiento y no te importa la dependencia: propietario (Claude, GPT). Si necesitas privacidad o personalización: open source (Llama, Mistral). En la práctica, muchos equipos combinan ambos.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard" target="_blank">Hugging Face Open LLM Leaderboard</a>
+    <a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis - model comparison</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 20 -->
+<Slide id="distilacion" number={20} title="Destilación de modelos">
+  <div class="analogy">
+    <p class="analogy-label"><i data-lucide="graduation-cap"></i> Analogía</p>
+    <p>Un profesor experto (modelo grande) enseña a un alumno (modelo pequeño). El alumno no estudia los libros originales: aprende de las <strong>respuestas y razonamientos del profesor</strong>. No será tan bueno en todo, pero en su especialidad puede acercarse mucho.</p>
+  </div>
+  <h3><i data-lucide="arrow-down-circle"></i> ¿Qué es la destilación?</h3>
+  <p>Entrenar un modelo pequeño para que <strong>replique el comportamiento</strong> de uno grande (teacher &rarr; student). El modelo grande genera datos de entrenamiento (respuestas, razonamientos) y el pequeño aprende a imitarlo.</p>
+  <table>
+    <thead>
+      <tr><th>Aspecto</th><th>Modelo teacher</th><th>Modelo student</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Tamaño</td><td>70B - 700B+ parámetros</td><td>1B - 14B parámetros</td></tr>
+      <tr><td>Coste inferencia</td><td>Alto (GPU potente)</td><td>Bajo (puede correr en CPU)</td></tr>
+      <tr><td>Capacidad general</td><td>Amplia</td><td>Reducida, pero especializada</td></tr>
+      <tr><td>Latencia</td><td>Alta</td><td>Baja</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="flask-conical"></i> Caso real: DeepSeek-R1</h3>
+  <p>DeepSeek-R1 (671B) fue destilado a modelos de 1.5B, 7B, 8B, 14B, 32B y 70B. Los modelos destilados mantienen gran parte de la capacidad de razonamiento del original, pero corren en hardware mucho más modesto.</p>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> ¿Cuándo destilar?</p>
+    <p>Cuando necesitas rendimiento de modelo grande en un escenario con restricciones de latencia, coste o privacidad (inferencia local). No es la primera opción: primero prueba prompt engineering y RAG. Destila cuando ya sabes <strong>exactamente</strong> qué tarea necesitas resolver y tienes datos de evaluación.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://arxiv.org/abs/2501.12948" target="_blank">DeepSeek-R1 - Paper técnico</a>
+    <a href="https://huggingface.co/blog/distillation-with-trl" target="_blank">Hugging Face - Distillation with TRL</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 21 -->
+<Slide id="inferencia-optimizada" number={21} title="Inferencia optimizada">
+  <p><i data-lucide="gauge"></i> Servir un modelo en producción no es solo cargarlo y llamar <code>generate()</code>. La diferencia entre un prototipo y producción real está en estas técnicas:</p>
+  <h3><i data-lucide="layers"></i> Técnicas clave</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="database"></i>
+      <div class="icon-card-content">
+        <strong>KV Cache</strong>
+        <p>Almacena los cálculos de atención de tokens previos para no recalcularlos. Sin KV cache, cada nuevo token recalcularía toda la secuencia. Coste: memoria GPU proporcional a la longitud del contexto.</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="fast-forward"></i>
+      <div class="icon-card-content">
+        <strong>Speculative decoding</strong>
+        <p>Un modelo pequeño (draft) genera candidatos rápido, y el modelo grande los verifica en paralelo. Si acierta, se aceptan todos de golpe. Resultado: misma calidad, 2-3x más rápido.</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="rows-3"></i>
+      <div class="icon-card-content">
+        <strong>Continuous batching</strong>
+        <p>En vez de esperar a que todas las peticiones terminen para procesar el siguiente lote, las nuevas peticiones entran en cuanto hay hueco. Maximiza el uso de la GPU.</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="split"></i>
+      <div class="icon-card-content">
+        <strong>Tensor parallelism</strong>
+        <p>Divide el modelo entre múltiples GPUs. Cada GPU calcula una parte de cada capa. Necesario para modelos que no caben en una sola GPU.</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="wrench"></i> Herramientas de serving</h3>
+  <table>
+    <thead>
+      <tr><th>Herramienta</th><th>Tipo</th><th>Punto fuerte</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>vLLM</strong></td><td>Servidor de inferencia</td><td>PagedAttention, continuous batching, alto throughput. El estándar de facto</td></tr>
+      <tr><td><strong>llama.cpp</strong></td><td>Inferencia local (CPU/GPU)</td><td>Modelos GGUF, funciona en laptops, bajo consumo</td></tr>
+      <tr><td><strong>TensorRT-LLM</strong></td><td>Optimización NVIDIA</td><td>Máximo rendimiento en GPUs NVIDIA, requiere compilación</td></tr>
+      <tr><td><strong>Ollama</strong></td><td>Wrapper amigable</td><td>Descarga y ejecuta modelos con un comando. Usa llama.cpp internamente</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="target"></i> ¿Cuándo importa esto?</p>
+    <p>Si usas una API (Claude, OpenAI, Gemini), el proveedor ya hace todo esto por ti. Importa cuando <strong>sirves tus propios modelos</strong>: on-premise, modelos destilados, fine-tuned, o por requisitos de privacidad.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://docs.vllm.ai/" target="_blank">vLLM - Documentación</a>
+    <a href="https://github.com/ggml-org/llama.cpp" target="_blank">llama.cpp - GitHub</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 22: SECCION -->
+<Slide id="sec-uso-practico" number={22} section
+  title="Uso práctico"
+  subtitle="Prompt engineering, alucinaciones, modelos frontier, RAG, bases de datos vectoriales y function calling." />
+
+<!-- SLIDE 23 -->
+<Slide id="prompt-engineering" number={23} title="Prompt engineering: cómo hablarle bien al modelo">
   <p><i data-lucide="message-square"></i> No es "preguntarle cosas": es <strong>diseñar la entrada</strong> para obtener la salida que necesitas. La calidad del prompt determina la calidad de la respuesta.</p>
   <h3><i data-lucide="wand-sparkles"></i> Técnicas principales</h3>
   <table>
@@ -183,7 +329,7 @@ import Slide from './Slide.astro';
         <span class="comment">// Prompt malo</span><br>
         <span class="string">"Hazme una función de validación"</span><br><br>
         <span class="comment">// Resultado: genérico, sin contexto,</span><br>
-        <span class="comment">// no sabes qué valida ni en qué lenguaje</span>
+        <span class="comment">// no sabes qué válida ni en qué lenguaje</span>
       </div>
     </div>
     <div>
@@ -202,13 +348,200 @@ import Slide from './Slide.astro';
   </div>
   <div class="refs">
     <p class="refs-title">Para profundizar</p>
-    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic - Prompt Engineering Guide</a>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic - Prompt Engineering Guide</a>
     <a href="https://www.promptingguide.ai/" target="_blank">Prompt Engineering Guide (comunidad)</a>
   </div>
 </Slide>
 
-<!-- SLIDE 15 -->
-<Slide id="frontier" number={15} title="¿Cómo se crea un modelo frontier?">
+<!-- SLIDE 24 -->
+<Slide id="alucinaciones" number={24} title="Alucinaciones: cuando la IA inventa con total confianza">
+  <p><i data-lucide="alert-triangle"></i> Una alucinación ocurre cuando el modelo genera información <strong>falsa, inventada o sin base</strong>, pero la presenta con la misma confianza que un dato real. No es un bug: es una consecuencia del mecanismo de predicción estadística.</p>
+  <h3><i data-lucide="code"></i> Ejemplo real: código alucinado</h3>
+  <div class="two-cols">
+    <div>
+      <div class="code-block">
+        <span class="comment">// Le pides al modelo:</span><br/>
+        <span class="string">"Usa la libreria fast-csv-validator</span><br/>
+        <span class="string">para validar este CSV"</span><br/><br/>
+        <span class="comment">// El modelo responde con confianza:</span><br/>
+        <span class="keyword">import</span> &#123; validate &#125; <span class="keyword">from</span><br/>
+        &nbsp;&nbsp;<span class="string">"fast-csv-validator"</span>;<br/><br/>
+        <span class="comment">// Problema: esa libreria NO EXISTE</span><br/>
+        <span class="comment">// El modelo la invento</span>
+      </div>
+    </div>
+    <div>
+      <div class="code-block">
+        <span class="comment">// Otros ejemplos frecuentes:</span><br/><br/>
+        <span class="comment">// Métodos que no existen en la API</span><br/>
+        db.<span class="string">findOneAndValidate</span>() <span class="comment">// inventado</span><br/><br/>
+        <span class="comment">// Flags de CLI inexistentes</span><br/>
+        docker run <span class="string">--memory-swap-limit</span> <span class="comment">// no</span><br/><br/>
+        <span class="comment">// URLs de documentación rotas</span><br/>
+        <span class="string">"Ver docs en docs.example.com/v3/..."</span>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="search"></i> ¿Por qué ocurre?</h3>
+  <ul>
+    <li><i data-lucide="brain"></i> <strong>No tiene base de datos interna:</strong> el modelo no "busca" información. Genera la siguiente palabra más probable dada la secuencia. Si "fast-csv-validator" suena plausible, lo genera</li>
+    <li><i data-lucide="eye"></i> <strong>No distingue hechos de invenciones:</strong> no tiene un mecanismo para verificar si lo que genera es real. Todo es predicción estadística</li>
+    <li><i data-lucide="target"></i> <strong>Cuanto más específico, más riesgo:</strong> preguntas generales ("¿que es REST?") rara vez alucinan. Preguntas especificas ("¿que método de la API de Stripe v4.2 maneja reembolsos parciales?") alucinan frecuentemente</li>
+  </ul>
+  <h3><i data-lucide="shield"></i> Como protegerte</h3>
+  <table>
+    <thead>
+      <tr><th>Estrategia</th><th>Cómo aplicarla</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Verificar imports</strong></td><td>Comprueba que cada paquete existe en npm/PyPI antes de instalarlo</td></tr>
+      <tr><td><strong>Comprobar APIs</strong></td><td>Verifica cada método/función contra la documentación oficial</td></tr>
+      <tr><td><strong>RAG</strong></td><td>Inyecta documentación real en el prompt para que el modelo se base en datos verificados</td></tr>
+      <tr><td><strong>Pedir fuentes</strong></td><td>Pide al modelo que cite la fuente. Si no puede dar una URL real, sospecha</td></tr>
+      <tr><td><strong>Tests</strong></td><td>Ejecuta siempre el código generado. Un test que falla detecta la alucinación antes de que llegue a producción</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="alert-triangle"></i> Regla de oro</p>
+    <p>Cuanto menos sabes de un tema, más peligrosa es la alucinación. Si no puedes verificar la respuesta por tu cuenta, no confies ciegamente. La IA no "sabe" que no sabe.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://arxiv.org/abs/2311.05232" target="_blank">A Survey on Hallucination in Large Language Models (2023)</a>
+    <a href="https://simonwillison.net/2025/Mar/2/hallucinations-in-code/" target="_blank">Simon Willison - Hallucinations in code are the least dangerous form of LLM mistakes</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 25 -->
+<Slide id="structured-output" number={25} title="Structured output: que el modelo devuelva datos parseables">
+  <p><i data-lucide="code"></i> En producción no quieres texto libre: quieres <strong>JSON válido</strong>, con campos tipados, que tu código pueda parsear sin romper. Los modelos modernos soportan modos para garantizarlo.</p>
+  <h3><i data-lucide="layers"></i> Tres niveles de control</h3>
+  <table>
+    <thead>
+      <tr><th>Nivel</th><th>Como</th><th>Fiabilidad</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Prompt</strong></td><td>"Responde en JSON con los campos name y age"</td><td>Media: el modelo puede anadir texto extra o romper el formato</td></tr>
+      <tr><td><strong>JSON mode</strong></td><td>Parámetro <code>response_format: &#123; type: "json_object" &#125;</code></td><td>Alta: garantiza JSON válido, pero no garantiza el schema</td></tr>
+      <tr><td><strong>Strict mode</strong></td><td>Schema JSON en la definición de la tool o respuesta</td><td>Máxima: el modelo solo puede emitir JSON que cumpla tu schema exacto</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="code"></i> Ejemplo con Anthropic (strict tool use)</h3>
+  <div class="code-block">
+    <span class="keyword">const</span> response = <span class="keyword">await</span> client.messages.create(&#123;<br/>
+    &nbsp;&nbsp;model: <span class="string">"claude-sonnet-4-6"</span>,<br/>
+    &nbsp;&nbsp;tools: [&#123;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="string">"extract_contact"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;description: <span class="string">"Extrae datos de contacto del texto"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;strict: <span class="keyword">true</span>, <span class="comment">// garantiza schema</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;input_schema: &#123;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="string">"object"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties: &#123;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: &#123; type: <span class="string">"string"</span> &#125;,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: &#123; type: <span class="string">"string"</span> &#125;,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phone: &#123; type: <span class="string">"string"</span>, nullable: <span class="keyword">true</span> &#125;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;, required: [<span class="string">"name"</span>, <span class="string">"email"</span>]<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+    &nbsp;&nbsp;&#125;],<br/>
+    &nbsp;&nbsp;tool_choice: &#123; type: <span class="string">"tool"</span>, name: <span class="string">"extract_contact"</span> &#125;,<br/>
+    &nbsp;&nbsp;messages: [&#123; role: <span class="string">"user"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;content: <span class="string">"Ana Garcia, ana@acme.com, tel 612345678"</span><br/>
+    &nbsp;&nbsp;&#125;]<br/>
+    &#125;);<br/><br/>
+    <span class="comment">// Resultado GARANTIZADO:</span><br/>
+    <span class="comment">// &#123; name: "Ana Garcia", email: "ana@acme.com",</span><br/>
+    <span class="comment">//   phone: "612345678" &#125;</span>
+  </div>
+  <h3><i data-lucide="target"></i> ¿Cuándo usar cada nivel?</h3>
+  <ul>
+    <li><i data-lucide="message-square"></i> <strong>Solo prompt:</strong> prototipos rapidos, chat interactivo donde no necesitas parsear la salida</li>
+    <li><i data-lucide="code"></i> <strong>JSON mode:</strong> cuando necesitas JSON pero el schema es flexible o variable</li>
+    <li><i data-lucide="shield"></i> <strong>Strict mode:</strong> producción, pipelines automatizados, integraciones API donde un campo que falta rompe el flujo</li>
+  </ul>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> Clave para ingenieros</p>
+    <p>Structured output elimina la necesidad de parsear texto con regex o try/catch. Defines el schema una vez y el modelo <strong>siempre</strong> lo cumple. Es la diferencia entre "espero que devuelva JSON" y "garantizo que devuelve JSON".</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs" target="_blank">Anthropic - Structured Outputs</a>
+    <a href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank">OpenAI - Structured Outputs</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 26 -->
+<Slide id="vision-multimodal" number={26} title="Visión y multimodalidad: más allá del texto">
+  <p><i data-lucide="image"></i> Los modelos actuales no solo leen texto: pueden <strong>ver imágenes, leer PDFs y procesar audio</strong>. Esto abre casos de uso que antes requerían herramientas especializadas.</p>
+  <h3><i data-lucide="eye"></i> ¿Qué puedes enviar al modelo?</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="image"></i>
+      <div class="icon-card-content">
+        <strong>Imágenes</strong>
+        <p>Capturas de pantalla, diagramas, mockups, fotos de pizarras, graficos. El modelo los "ve" y puede describir, analizar o extraer datos</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="file-text"></i>
+      <div class="icon-card-content">
+        <strong>PDFs y documentos</strong>
+        <p>Contratos, facturas, papers, manuales. El modelo extrae texto, tablas y entiende la estructura del documento</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="code"></i>
+      <div class="icon-card-content">
+        <strong>Capturas de errores</strong>
+        <p>Envia un screenshot del error en vez de copiar/pegar. El modelo lee la traza, identifica el problema y sugiere la solución</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="layout"></i>
+      <div class="icon-card-content">
+        <strong>Diagramas y mockups</strong>
+        <p>Envia un wireframe dibujado a mano o un diagrama de arquitectura. El modelo lo interpreta y puede generar código a partir de el</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="code"></i> Ejemplo: enviar una imagen a la API</h3>
+  <div class="code-block">
+    <span class="keyword">const</span> response = <span class="keyword">await</span> client.messages.create(&#123;<br/>
+    &nbsp;&nbsp;model: <span class="string">"claude-sonnet-4-6"</span>,<br/>
+    &nbsp;&nbsp;messages: [&#123; role: <span class="string">"user"</span>, content: [<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="string">"image"</span>, source: &#123;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="string">"url"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: <span class="string">"https://ejemplo.com/screenshot.png"</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#125; &#125;,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="string">"text"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="string">"¿Qué error muestra esta captura?"</span> &#125;<br/>
+    &nbsp;&nbsp;] &#125;]<br/>
+    &#125;);
+  </div>
+  <h3><i data-lucide="database"></i> Soporte por modelo (marzo 2026)</h3>
+  <table>
+    <thead>
+      <tr><th>Capacidad</th><th>Claude</th><th>GPT-5.2</th><th>Gemini 3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Imágenes</strong></td><td>Si (hasta 20 por mensaje)</td><td>Si</td><td>Si</td></tr>
+      <tr><td><strong>PDFs</strong></td><td>Si (nativo)</td><td>Si</td><td>Si</td></tr>
+      <tr><td><strong>Audio</strong></td><td>No (en desarrollo)</td><td>Si</td><td>Si (nativo)</td></tr>
+      <tr><td><strong>Video</strong></td><td>No</td><td>Si (limitado)</td><td>Si (hasta 1h)</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="zap"></i> Caso de uso inmediato para ingenieros</p>
+    <p>En vez de describir un bug con texto, envia la captura de pantalla. En vez de copiar una tabla de un PDF, envia el PDF. En vez de transcribir un diagrama, envia la foto. El modelo hace el trabajo de interpretación por ti.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/vision" target="_blank">Anthropic - Vision</a>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/pdf-support" target="_blank">Anthropic - PDF Support</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 27 -->
+<Slide id="frontier" number={27} title="¿Cómo se crea un modelo frontier?">
   <ol class="steps">
     <li><i data-lucide="database"></i> <strong>Pre-entrenamiento:</strong> billones de tokens, semanas de entrenamiento en miles de GPUs. El modelo aprende patrones del lenguaje prediciendo la siguiente palabra en textos masivos (internet, libros, código). Esta fase consume el 90%+ del presupuesto de compute.</li>
     <li><i data-lucide="graduation-cap"></i> <strong>Fine-tuning supervisado (SFT):</strong> ejemplos curados de conversaciones de calidad. Humanos escriben respuestas ideales y el modelo aprende a imitarlas. Típicamente 10.000-100.000 ejemplos de alta calidad.</li>
@@ -243,8 +576,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 16 -->
-<Slide id="huggingface-lmstudio" number={16} title="Hugging Face + LM Studio: modelos en local">
+<!-- SLIDE 28 -->
+<Slide id="huggingface-lmstudio" number={28} title="Hugging Face + LM Studio: modelos en local">
   <div class="two-cols">
     <div>
       <h3><i data-lucide="globe"></i> Hugging Face</h3>
@@ -263,7 +596,7 @@ import Slide from './Slide.astro';
         <li><i data-lucide="download"></i> Descarga modelos directamente desde Hugging Face</li>
         <li><i data-lucide="lock"></i> Chat local, sin enviar datos a ningún servidor</li>
         <li><i data-lucide="code"></i> Expone una <strong>API compatible con OpenAI</strong> (localhost:1234)</li>
-        <li><i data-lucide="sliders-horizontal"></i> Quantizaciones GGUF: Q4, Q5, Q8... equilibrio RAM vs calidad</li>
+        <li><i data-lucide="sliders-horizontal"></i> Cuantizaciones GGUF: Q4, Q5, Q8... equilibrio RAM/VRAM vs calidad</li>
       </ul>
     </div>
   </div>
@@ -278,7 +611,7 @@ import Slide from './Slide.astro';
   </div>
   <div class="callout">
     <p class="callout-title"><i data-lucide="package"></i> Formatos de quantización GGUF</p>
-    <p><strong>Q4_K_M:</strong> ~4 bits por peso. Buena calidad, poca RAM (~4 GB para 7B). Ideal para empezar. <strong>Q5_K_M:</strong> ~5 bits. Mejor calidad, algo más de RAM. <strong>Q8_0:</strong> ~8 bits. Casi igual que el original pero cabe en consumer GPUs. Regla: empieza por Q4, sube si tu hardware lo permite.</p>
+    <p><strong>Q4_K_M:</strong> ~4.5 bits/peso. Archivo ~4 GB, necesita ~6.5 GB RAM para 7B. Recomendado para empezar. <strong>Q5_K_M:</strong> ~5 bits. Calidad notablemente mejor (+2 GB RAM). <strong>Q8_0:</strong> 8 bits. Casi idéntico al original (~7 GB archivo, ~10 GB RAM). GGUF corre en CPU (RAM del sistema); si descargas capas a GPU, usa VRAM. Regla: empieza por Q4_K_M, sube si tu hardware lo permite.</p>
   </div>
   <p>Ideal para: prototipos, datos sensibles, trabajar sin conexión, evaluar modelos antes de pagar API.</p>
   <div class="refs">
@@ -288,8 +621,8 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 17 -->
-<Slide id="rag" number={17} title="RAG (Retrieval Augmented Generation)">
+<!-- SLIDE 29 -->
+<Slide id="rag" number={29} title="RAG (Retrieval Augmented Generation)">
   <p><i data-lucide="search"></i> <strong>Problema:</strong> el modelo no sabe de tus datos internos (documentación, BD, wikis). Fue entrenado con datos públicos hasta cierta fecha.</p>
   <p><i data-lucide="lightbulb"></i> <strong>Solución:</strong> en vez de reentrenar el modelo, le pasas contexto relevante en cada consulta.</p>
   <div class="flow">
@@ -338,7 +671,7 @@ import Slide from './Slide.astro';
     <span class="keyword">const</span> chunks = splitIntoChunks(document, <span class="string">512</span>);<br/>
     <span class="keyword">const</span> vectors = <span class="keyword">await</span> embed(chunks);<br/>
     <span class="keyword">await</span> vectorDB.upsert(vectors);<br/><br/>
-    <span class="comment">// 2. Consultar (cada peticion del usuario)</span><br/>
+    <span class="comment">// 2. Consultar (cada petición del usuario)</span><br/>
     <span class="keyword">const</span> queryVec = <span class="keyword">await</span> embed(userQuestion);<br/>
     <span class="keyword">const</span> relevant = <span class="keyword">await</span> vectorDB.search(queryVec, &#123; topK: 5 &#125;);<br/><br/>
     <span class="comment">// 3. Generar respuesta con contexto</span><br/>
@@ -360,8 +693,153 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 18 -->
-<Slide id="vectordb" number={18} title="Bases de datos vectoriales: ¿qué son y en qué se diferencian?">
+<!-- SLIDE 30 -->
+<Slide id="cuando-que-tecnica" number={30} title="¿Cuándo usar prompt, RAG o fine-tuning?">
+  <p><i data-lucide="compass"></i> Las tres técnicas resuelven problemas diferentes. Elegir mal cuesta tiempo y dinero.</p>
+  <table>
+    <thead>
+      <tr><th></th><th>Prompt engineering</th><th>RAG</th><th>Fine-tuning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>¿Qué cambia?</strong></td><td>La entrada al modelo</td><td>El contexto inyectado</td><td>Los pesos del modelo</td></tr>
+      <tr><td><strong>Datos propios</strong></td><td>Caben en el prompt (&lt;200k tokens)</td><td>Cualquier volumen, búsqueda por similitud</td><td>Se "hornean" en el modelo</td></tr>
+      <tr><td><strong>Datos cambiantes</strong></td><td>Actualizas el prompt</td><td>Actualizas los documentos indexados</td><td>Requiere reentrenar</td></tr>
+      <tr><td><strong>Coste inicial</strong></td><td>Cero</td><td>Medio (embeddings + vector DB)</td><td>Alto (compute, datos curados)</td></tr>
+      <tr><td><strong>Coste por petición</strong></td><td>Solo tokens del prompt</td><td>Embedding + búsqueda + tokens</td><td>Solo tokens (modelo ya ajustado)</td></tr>
+      <tr><td><strong>Trazabilidad</strong></td><td>No cita fuentes</td><td>Puede citar fragmentos exactos</td><td>No cita fuentes</td></tr>
+      <tr><td><strong>Complejidad</strong></td><td>Baja</td><td>Media</td><td>Alta</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="route"></i> Árbol de decisión</h3>
+  <div class="flow">
+    <span class="flow-step">¿Tus datos caben en el prompt?</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Si &rarr; Prompt engineering</span>
+  </div>
+  <div class="flow">
+    <span class="flow-step">¿Necesitas buscar en muchos docs?</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Si &rarr; RAG</span>
+  </div>
+  <div class="flow">
+    <span class="flow-step">¿Necesitas cambiar el estilo/tono?</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Si &rarr; Fine-tuning</span>
+  </div>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> Regla práctica</p>
+    <p>Empieza <strong>siempre</strong> por prompt engineering. Solo pasa a RAG cuando el contexto no cabe en el prompt o cambia frecuentemente. Solo haz fine-tuning si necesitas cambiar el comportamiento base del modelo (tono, formato, dominio muy específico).</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic - Prompt Engineering</a>
+    <a href="https://www.pinecone.io/learn/retrieval-augmented-generation/" target="_blank">Pinecone - RAG Guide</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 31 -->
+<Slide id="fine-tuning-practico" number={31} title="Fine-tuning en la práctica">
+  <p><i data-lucide="settings"></i> Fine-tuning es <strong>reentrenar parcialmente un modelo</strong> con tus propios datos para que se especialice en tu tarea. No cambias el modelo entero: solo ajustas una parte.</p>
+  <h3><i data-lucide="puzzle"></i> LoRA y QLoRA</h3>
+  <p>En vez de reentrenar los miles de millones de parámetros del modelo, <strong>LoRA</strong> (Low-Rank Adaptation) añade pequeñas matrices entrenables en capas clave. Resultado: entrenas <strong>0.1-1% de los parámetros</strong> con una fracción de la memoria.</p>
+  <table>
+    <thead>
+      <tr><th>Técnica</th><th>Memoria GPU</th><th>Parámetros entrenados</th><th>Caso de uso</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Full fine-tuning</strong></td><td>~160 GB (7B)</td><td>100%</td><td>Cambio radical de comportamiento</td></tr>
+      <tr><td><strong>LoRA</strong></td><td>~16 GB (7B)</td><td>0.1 - 1%</td><td>Especialización: estilo, dominio, formato</td></tr>
+      <tr><td><strong>QLoRA</strong></td><td>~6 GB (7B)</td><td>0.1 - 1%</td><td>Igual que LoRA pero con modelo quantizado (4-bit)</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="wrench"></i> Herramientas</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="zap"></i>
+      <div class="icon-card-content">
+        <strong>Unsloth</strong>
+        <p>2x más rápido, 60% menos memoria. Soporta Llama, Mistral, Gemma. La opción más eficiente para fine-tuning local</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="cog"></i>
+      <div class="icon-card-content">
+        <strong>Axolotl</strong>
+        <p>Configuración YAML, múltiples formatos de dataset, integración con Weights &amp; Biases</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="cloud"></i>
+      <div class="icon-card-content">
+        <strong>APIs de fine-tuning</strong>
+        <p>OpenAI, Google y Anthropic ofrecen fine-tuning como servicio. Subes un JSONL, esperas, y tienes tu modelo</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="alert-triangle"></i> Antes de hacer fine-tuning</p>
+    <p>El 90% de las veces, un buen prompt o RAG resuelve el problema sin fine-tuning. Fine-tuning tiene sentido cuando necesitas: (1) un formato de salida muy específico que el prompt no consigue, (2) conocimiento de dominio que no se puede inyectar por contexto, o (3) reducir latencia/coste eliminando instrucciones largas del prompt.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://github.com/unslothai/unsloth" target="_blank">Unsloth - GitHub</a>
+    <a href="https://huggingface.co/docs/peft" target="_blank">Hugging Face PEFT - LoRA/QLoRA</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 32 -->
+<Slide id="datos-sinteticos" number={32} title="Datos sintéticos">
+  <p><i data-lucide="factory"></i> Usar un LLM grande para <strong>generar datos de entrenamiento</strong> para otros modelos o sistemas. Cada vez más común como alternativa a la recolección manual de datos.</p>
+  <h3><i data-lucide="list-tree"></i> Patrones comunes</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="copy"></i>
+      <div class="icon-card-content">
+        <strong>Datos para destilación</strong>
+        <p>El modelo teacher genera miles de pares input/output. El modelo student entrena con esos pares. Así se crearon los modelos destilados de DeepSeek-R1 y Phi</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="test-tubes"></i>
+      <div class="icon-card-content">
+        <strong>Datasets de evaluación</strong>
+        <p>Generar casos de test automáticos para evaluar modelos. Preguntas, respuestas esperadas, escenarios edge case</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="file-plus"></i>
+      <div class="icon-card-content">
+        <strong>Aumentación de datos</strong>
+        <p>Tienes pocos ejemplos reales (50-100) y generas variantes: paráfrasis, traducciones, cambios de estilo. Multiplicas tu dataset por 10-100x</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="message-square-plus"></i>
+      <div class="icon-card-content">
+        <strong>Datos conversacionales</strong>
+        <p>Generar diálogos multi-turno para entrenar chatbots de dominio específico (soporte técnico, ventas, onboarding)</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="alert-triangle"></i> Riesgos</h3>
+  <ul>
+    <li><i data-lucide="repeat"></i> <strong>Model collapse:</strong> si entrenas con datos generados por el mismo modelo (o uno similar), la calidad degrada con cada generación. Los errores se amplifican</li>
+    <li><i data-lucide="scale"></i> <strong>Sesgo amplificado:</strong> los sesgos del modelo teacher se heredan y pueden intensificarse en el student</li>
+    <li><i data-lucide="check-circle"></i> <strong>Calidad variable:</strong> sin filtrado y revisión humana, los datos sintéticos pueden contener alucinaciones, inconsistencias o patrones repetitivos</li>
+  </ul>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> Buenas prácticas</p>
+    <p>Mezcla datos sintéticos con datos reales (ratio 3:1 a 5:1 sintético:real). Filtra por calidad (otro LLM como juez, o métricas automáticas). Valida siempre con un subset de datos reales etiquetados por humanos.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://huggingface.co/blog/synthetic-data-save-costs" target="_blank">Hugging Face - Synthetic Data</a>
+    <a href="https://github.com/argilla-io/distilabel" target="_blank">Distilabel - Framework para datos sintéticos</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 33 -->
+<Slide id="vectordb" number={33} title="Bases de datos vectoriales: ¿qué son y en qué se diferencian?">
   <p><i data-lucide="database"></i> Bases de datos optimizadas para almacenar y buscar <strong>vectores (embeddings)</strong> por similitud. En vez de buscar por coincidencia exacta (<code>WHERE nombre = 'X'</code>), buscan por distancia entre vectores: "¿qué vectores se parecen más a este?"</p>
   <h3><i data-lucide="compass"></i> SQL vs NoSQL vs Vectorial</h3>
   <table>
@@ -399,95 +877,192 @@ import Slide from './Slide.astro';
   </div>
 </Slide>
 
-<!-- SLIDE 19 -->
-<Slide id="agentes" number={19} title="¿Qué es un agente?">
-  <p><i data-lucide="bot"></i> Un LLM con capacidad de <strong>actuar</strong>: no solo responde, <strong>ejecuta</strong>. Tiene acceso a herramientas (tools) y puede completar tareas complejas de forma autónoma.</p>
+<!-- SLIDE 34 -->
+<Slide id="prompt-caching" number={34} title="Prompt caching: pagar una vez, reutilizar siempre">
+  <p><i data-lucide="database"></i> Cuando usas system prompts largos o contexto RAG fijo, estás pagando los mismos tokens en cada llamada. El prompt caching guarda los tokens estáticos en caché y solo cobras una fracción en llamadas posteriores.</p>
   <div class="flow">
-    <span class="flow-step"><i data-lucide="eye"></i> Percibir</span>
+    <span class="flow-step">Primera llamada</span>
     <span class="flow-arrow">&rarr;</span>
-    <span class="flow-step"><i data-lucide="brain"></i> Razonar</span>
+    <span class="flow-step">Cachear prefijo</span>
     <span class="flow-arrow">&rarr;</span>
-    <span class="flow-step"><i data-lucide="terminal"></i> Actuar</span>
+    <span class="flow-step">Siguientes llamadas</span>
     <span class="flow-arrow">&rarr;</span>
-    <span class="flow-step"><i data-lucide="search"></i> Observar</span>
-    <span class="flow-arrow">&circlearrowright;</span>
+    <span class="flow-step">Solo tokens nuevos + caché (90% descuento)</span>
   </div>
-  <h3><i data-lucide="wrench"></i> ¿Qué puede hacer un agente?</h3>
-  <div class="icon-grid">
-    <div class="icon-card">
-      <i data-lucide="search"></i>
-      <div class="icon-card-content">
-        <strong>Buscar información</strong>
-        <p>Ficheros, bases de datos, internet, APIs externas</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="file-text"></i>
-      <div class="icon-card-content">
-        <strong>Leer y escribir</strong>
-        <p>Crear, editar y analizar archivos de tu proyecto</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="terminal"></i>
-      <div class="icon-card-content">
-        <strong>Ejecutar comandos</strong>
-        <p>Tests, builds, deploys, instalaciones, scripts</p>
-      </div>
-    </div>
-    <div class="icon-card">
-      <i data-lucide="repeat"></i>
-      <div class="icon-card-content">
-        <strong>Autocorregirse</strong>
-        <p>Si algo falla, analiza el error y reintenta con otra estrategia</p>
-      </div>
-    </div>
+  <h3><i data-lucide="table"></i> Soporte por proveedor</h3>
+  <table>
+    <thead>
+      <tr><th>Proveedor</th><th>Cómo funciona</th><th>Ahorro</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Anthropic</strong></td><td><code>cache_control</code> breakpoints en el mensaje</td><td>Hasta 90% en tokens cacheados</td></tr>
+      <tr><td><strong>OpenAI</strong></td><td>Automático para prefijos largos repetidos</td><td>50% en cached tokens</td></tr>
+      <tr><td><strong>Google</strong></td><td>Context caching explícito</td><td>Hasta 75%</td></tr>
+    </tbody>
+  </table>
+  <h3><i data-lucide="code"></i> Ejemplo con la API de Anthropic</h3>
+  <div class="code-block">
+    <span class="keyword">const</span> response = <span class="keyword">await</span> client.messages.create(&#123;<br/>
+    &nbsp;&nbsp;model: <span class="string">"claude-sonnet-4-6"</span>,<br/>
+    &nbsp;&nbsp;system: [&#123;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;type: <span class="string">"text"</span>,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;text: systemPromptLargo, <span class="comment">// 10.000+ tokens</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;cache_control: &#123; type: <span class="string">"ephemeral"</span> &#125;<br/>
+    &nbsp;&nbsp;&#125;],<br/>
+    &nbsp;&nbsp;messages: [&#123; role: <span class="string">"user"</span>, content: pregunta &#125;]<br/>
+    &#125;);<br/>
+    <span class="comment">// Primera llamada: precio normal</span><br/>
+    <span class="comment">// Siguientes (5 min): ~90% descuento en el system prompt</span>
   </div>
-  <h3><i data-lucide="eye"></i> Ejemplo paso a paso: "Añade tests al módulo de auth"</h3>
-  <ol class="steps">
-    <li><strong>Lee</strong> el código del módulo de auth para entender la estructura</li>
-    <li><strong>Identifica</strong> funciones sin cobertura de tests</li>
-    <li><strong>Escribe</strong> los tests en un archivo nuevo o existente</li>
-    <li><strong>Ejecuta</strong> <code>npm test</code> para verificar que pasan</li>
-    <li><strong>Corrige</strong> errores si algún test falla y vuelve a ejecutar</li>
-  </ol>
-  <h3><i data-lucide="bot"></i> Diferencia clave con un chatbot</h3>
-  <p>Un chatbot responde preguntas. Un agente <strong>completa tareas</strong>. El chatbot te dice cómo hacerlo; el agente lo hace por ti (con tu supervisión).</p>
-  <p><strong>Ejemplos:</strong> Claude Code, Devin, Cursor Agent, Aider</p>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> ¿Cuándo usarlo?</p>
+    <p><strong>Ideal para:</strong> system prompts largos (&gt;1000 tokens), contexto RAG fijo que se repite, conversaciones donde el historial crece. <strong>No útil para:</strong> prompts cortos que cambian cada vez.</p>
+  </div>
   <div class="refs">
     <p class="refs-title">Para profundizar</p>
-    <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">OpenAI - A Practical Guide to Building Agents (PDF, 34 páginas)</a>
-    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">Anthropic - Building Effective Agents</a>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank">Anthropic - Prompt Caching docs</a>
+    <a href="https://platform.openai.com/docs/guides/caching" target="_blank">OpenAI - Caching docs</a>
   </div>
 </Slide>
 
-<!-- SLIDE 20 -->
-<Slide id="contexto-memoria" number={20} title="Contexto y memoria en agentes: por qué importa empezar limpio">
-  <p><i data-lucide="brain"></i> El <strong>context window</strong> es la memoria de trabajo del agente: lo que "ve" en cada momento. Cuanto más larga la conversación, más tokens consume &rarr; más caro, más lento y peor rendimiento.</p>
-  <h3><i data-lucide="zap"></i> ¿Por qué usar contextos nuevos para tareas nuevas?</h3>
-  <ul>
-    <li><i data-lucide="shield"></i> <strong>Evitas contaminación:</strong> instrucciones o errores de una tarea anterior no afectan a la siguiente</li>
-    <li><i data-lucide="zap"></i> <strong>Mejor rendimiento:</strong> el modelo razona mejor con contexto limpio y enfocado</li>
-    <li><i data-lucide="coins"></i> <strong>Menor coste:</strong> no pagas tokens de historia irrelevante</li>
-  </ul>
-  <h3><i data-lucide="hard-drive"></i> Tipos de memoria en agentes</h3>
+<!-- SLIDE 35 -->
+<Slide id="context-window-practica" number={35} title="Context window en la práctica: no todo es lo que parece">
+  <p><i data-lucide="layers"></i> Un modelo con 200k tokens de context window no significa que puedas meter 200k tokens y funcione igual de bien. Hay límites prácticos que todo ingeniero debe conocer.</p>
+  <h3><i data-lucide="alert-triangle"></i> "Lost in the middle"</h3>
+  <p>Los modelos prestan más atención al inicio y al final del contexto, y tienden a "olvidar" información que está en el medio. Si metes un dato importante en la página 50 de 100, el modelo puede ignorarlo. (<a href="https://arxiv.org/abs/2307.03172" target="_blank">Lost in the Middle paper</a>)</p>
+  <h3><i data-lucide="table"></i> Context teórico vs práctico</h3>
   <table>
     <thead>
-      <tr><th></th><th>Tipo</th><th>Duración</th><th>Ejemplo</th></tr>
+      <tr><th>Modelo</th><th>Context window</th><th>Zona óptima</th><th>Nota</th></tr>
     </thead>
     <tbody>
-      <tr><td><i data-lucide="clock"></i></td><td><strong>Corto plazo</strong></td><td>La conversación actual</td><td>El context window del LLM</td></tr>
-      <tr><td><i data-lucide="hard-drive"></i></td><td><strong>Largo plazo</strong></td><td>Persistida entre sesiones</td><td>Ficheros, BD, embeddings, CLAUDE.md</td></tr>
-      <tr><td><i data-lucide="brain"></i></td><td><strong>Episódica</strong></td><td>Recuerdos de conversaciones</td><td>Qué decisiones se tomaron y por qué</td></tr>
+      <tr><td><strong>Claude</strong></td><td>200k</td><td>&lt;100k para máximo rendimiento</td><td>Compactación automática en Claude Code</td></tr>
+      <tr><td><strong>GPT-5.2</strong></td><td>128k</td><td>&lt;64k</td><td>Cached prefixes ayudan</td></tr>
+      <tr><td><strong>Gemini 3</strong></td><td>1M+</td><td>Varía</td><td>Mejor retención en contextos largos</td></tr>
     </tbody>
   </table>
+  <h3><i data-lucide="list"></i> Estrategias para contextos grandes</h3>
+  <ul>
+    <li><i data-lucide="scissors"></i> <strong>Chunking inteligente:</strong> dividir documentos en fragmentos con solapamiento</li>
+    <li><i data-lucide="arrow-up"></i> <strong>Priorizar información relevante</strong> al inicio y final del prompt</li>
+    <li><i data-lucide="search"></i> <strong>RAG en vez de meter todo en el context</strong> cuando el volumen es grande</li>
+    <li><i data-lucide="compress"></i> <strong>Resumen progresivo</strong> para conversaciones largas</li>
+    <li><i data-lucide="git-branch"></i> <strong>Map-reduce</strong> para documentos enormes</li>
+  </ul>
   <div class="callout">
-    <p class="callout-title"><i data-lucide="lightbulb"></i> Estrategia práctica</p>
-    <p>Una tarea = un contexto nuevo, con solo las instrucciones y datos que necesita. Los frameworks ya lo gestionan: CrewAI tiene memoria corta/larga/entidad, Claude Code compacta automáticamente.</p>
+    <p class="callout-title"><i data-lucide="target"></i> Regla práctica</p>
+    <p>No llenes el context window "porque puedes". Más contexto = más caro, más lento y potencialmente peor calidad. Usa solo el contexto que necesitas para la tarea.</p>
   </div>
   <div class="refs">
     <p class="refs-title">Para profundizar</p>
-    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">Anthropic - Building Effective Agents</a>
-    <a href="https://docs.crewai.com/concepts/memory" target="_blank">CrewAI - Memory Concepts</a>
+    <a href="https://arxiv.org/abs/2307.03172" target="_blank">Lost in the Middle paper (arxiv)</a>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/long-context-tips" target="_blank">Anthropic - Long context tips</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 36 -->
+<Slide id="api-hello-world" number={36} title="API Hello World: tu primera llamada a un LLM">
+  <p><i data-lucide="terminal"></i> Antes de hablar de agentes, veamos lo más básico: hacer una llamada a la API de un modelo. Es sorprendentemente simple.</p>
+  <h3><i data-lucide="terminal"></i> Con curl</h3>
+  <div class="code-block">
+    curl https://api.anthropic.com/v1/messages \<br/>
+    &nbsp;&nbsp;-H <span class="string">"x-api-key: $ANTHROPIC_API_KEY"</span> \<br/>
+    &nbsp;&nbsp;-H <span class="string">"content-type: application/json"</span> \<br/>
+    &nbsp;&nbsp;-H <span class="string">"anthropic-version: 2023-06-01"</span> \<br/>
+    &nbsp;&nbsp;-d <span class="string">'&#123;</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"model": "claude-sonnet-4-6",</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"max_tokens": 256,</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"messages": [</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">&#123;"role": "user", "content": "¿Qué es TypeScript en una frase?"&#125;</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">]</span><br/>
+    &nbsp;&nbsp;<span class="string">&#125;'</span>
+  </div>
+  <h3><i data-lucide="code"></i> Con el SDK de TypeScript</h3>
+  <div class="code-block">
+    <span class="keyword">import</span> Anthropic <span class="keyword">from</span> <span class="string">"@anthropic-ai/sdk"</span>;<br/>
+    <span class="keyword">const</span> client = <span class="keyword">new</span> Anthropic(); <span class="comment">// usa ANTHROPIC_API_KEY del entorno</span><br/>
+    <span class="keyword">const</span> msg = <span class="keyword">await</span> client.messages.create(&#123;<br/>
+    &nbsp;&nbsp;model: <span class="string">"claude-sonnet-4-6"</span>,<br/>
+    &nbsp;&nbsp;max_tokens: <span class="string">256</span>,<br/>
+    &nbsp;&nbsp;messages: [<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#123; role: <span class="string">"user"</span>, content: <span class="string">"¿Qué es TypeScript en una frase?"</span> &#125;<br/>
+    &nbsp;&nbsp;]<br/>
+    &#125;);<br/>
+    console.log(msg.content[<span class="string">0</span>].text);
+  </div>
+  <h3><i data-lucide="layers"></i> ¿Qué devuelve la API?</h3>
+  <ul>
+    <li><i data-lucide="file-text"></i> <strong>content:</strong> array de bloques con el texto de la respuesta</li>
+    <li><i data-lucide="cpu"></i> <strong>model:</strong> el modelo que respondió</li>
+    <li><i data-lucide="check-circle"></i> <strong>stop_reason:</strong> por qué paró (<code>"end_turn"</code> = respuesta completa)</li>
+    <li><i data-lucide="coins"></i> <strong>usage:</strong> <code>input_tokens</code> y <code>output_tokens</code> consumidos (lo que pagas)</li>
+  </ul>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="rocket"></i> De aquí a un agente</p>
+    <p>Esta llamada simple es la base de todo. Un agente es esto mismo dentro de un bucle que añade tool calls. La complejidad se construye sobre esta base.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://platform.claude.com/docs/en/api/getting-started" target="_blank">Anthropic API - Getting Started</a>
+    <a href="https://github.com/anthropics/anthropic-sdk-typescript" target="_blank">Anthropic TypeScript SDK</a>
+  </div>
+</Slide>
+
+<!-- SLIDE 37 -->
+<Slide id="streaming" number={37} title="Streaming de respuestas">
+  <p><i data-lucide="radio"></i> En vez de esperar a que el modelo genere toda la respuesta, recibes <strong>token por token</strong> en tiempo real. Todo producto serio usa streaming: ChatGPT, Claude, Gemini.</p>
+  <h3><i data-lucide="arrow-right"></i> ¿Cómo funciona?</h3>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <i data-lucide="server"></i>
+      <div class="icon-card-content">
+        <strong>Server-Sent Events (SSE)</strong>
+        <p>El estándar para streaming de LLMs. Conexión HTTP unidireccional: el servidor envía eventos conforme genera tokens. Más simple que WebSockets y suficiente para este caso</p>
+      </div>
+    </div>
+    <div class="icon-card">
+      <i data-lucide="timer"></i>
+      <div class="icon-card-content">
+        <strong>Time to First Token (TTFT)</strong>
+        <p>Métrica clave: cuánto tarda en llegar el primer token. Con streaming, el usuario ve actividad en 200-500 ms en vez de esperar 5-30 segundos a la respuesta completa</p>
+      </div>
+    </div>
+  </div>
+  <h3><i data-lucide="code"></i> Ejemplo: streaming con la API de Anthropic</h3>
+  <div class="code-block">
+    <span class="keyword">import</span> Anthropic <span class="keyword">from</span> <span class="string">"@anthropic-ai/sdk"</span>;<br/><br/>
+    <span class="keyword">const</span> client = <span class="keyword">new</span> Anthropic();<br/><br/>
+    <span class="keyword">const</span> stream = client.messages.<strong>stream</strong>(&#123;<br/>
+    &nbsp;&nbsp;model: <span class="string">"claude-sonnet-4-6"</span>,<br/>
+    &nbsp;&nbsp;max_tokens: <span class="string">1024</span>,<br/>
+    &nbsp;&nbsp;messages: [&#123; role: <span class="string">"user"</span>, content: <span class="string">"Explica qué es Docker"</span> &#125;]<br/>
+    &#125;);<br/><br/>
+    <span class="comment">// Evento por evento (cada token/chunk)</span><br/>
+    stream.<strong>on</strong>(<span class="string">'text'</span>, (text) =&gt; &#123;<br/>
+    &nbsp;&nbsp;process.stdout.write(text); <span class="comment">// Imprime en tiempo real</span><br/>
+    &#125;);<br/><br/>
+    <span class="keyword">const</span> finalMessage = <span class="keyword">await</span> stream.<strong>finalMessage</strong>();<br/>
+    <span class="comment">// finalMessage contiene la respuesta completa + usage</span>
+  </div>
+  <h3><i data-lucide="layout-list"></i> Eventos del stream</h3>
+  <table>
+    <thead>
+      <tr><th>Evento</th><th>Qué contiene</th><th>Uso típico</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>message_start</code></td><td>Metadata del mensaje (id, modelo)</td><td>Inicializar UI</td></tr>
+      <tr><td><code>content_block_delta</code></td><td>Fragmento de texto (delta)</td><td>Mostrar token por token</td></tr>
+      <tr><td><code>message_delta</code></td><td>Razón de parada, uso de tokens</td><td>Contabilizar coste</td></tr>
+      <tr><td><code>message_stop</code></td><td>Fin del mensaje</td><td>Cerrar la UI de escritura</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p class="callout-title"><i data-lucide="lightbulb"></i> En la práctica</p>
+    <p>Streaming no cambia el coste ni la calidad de la respuesta: genera exactamente los mismos tokens. Solo cambia <strong>cuándo los recibes</strong>. La percepción de velocidad mejora enormemente aunque el tiempo total sea el mismo.</p>
+  </div>
+  <div class="refs">
+    <p class="refs-title">Para profundizar</p>
+    <a href="https://docs.anthropic.com/en/api/streaming" target="_blank">Anthropic - Streaming API</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events" target="_blank">MDN - Server-Sent Events</a>
   </div>
 </Slide>

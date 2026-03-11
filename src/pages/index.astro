@@ -8,62 +8,95 @@ import '../styles/global.css';
 const tocSections = [
   {
     title: 'Fundamentos',
+    sectionSlide: 'sec-fundamentos',
     items: [
-      { num: 1, label: '¿Qué NO es la IA?', id: 'que-no-es' },
-      { num: 2, label: '¿Qué SÍ es la IA?', id: 'que-si-es' },
-      { num: 3, label: 'Determinismo vs estocástico', id: 'determinismo' },
-      { num: 4, label: 'Principios de la IA', id: 'principios' },
-      { num: 5, label: '¿Qué es un token?', id: 'tokens' },
-      { num: 6, label: '¿Qué es un embedding?', id: 'embeddings' },
-      { num: 7, label: 'Entrenamiento vs inferencia', id: 'entrenamiento-inferencia' },
+      { num: 2, label: '¿Qué NO es la IA?', id: 'que-no-es' },
+      { num: 3, label: '¿Qué SÍ es la IA?', id: 'que-si-es' },
+      { num: 4, label: 'Determinismo vs estocástico', id: 'determinismo' },
+      { num: 5, label: 'Principios de la IA', id: 'principios' },
+      { num: 6, label: '¿Qué es un token?', id: 'tokens' },
+      { num: 7, label: '¿Qué es un embedding?', id: 'embeddings' },
+      { num: 8, label: 'Embeddings en la práctica', id: 'embeddings-practica' },
+      { num: 9, label: 'Entrenamiento vs inferencia', id: 'entrenamiento-inferencia' },
+      { num: 10, label: 'Quantización', id: 'quantizacion' },
     ],
   },
   {
     title: 'Arquitecturas y modelos',
+    sectionSlide: 'sec-arquitecturas',
     items: [
-      { num: 8, label: 'Arquitecturas', id: 'arquitecturas' },
-      { num: 9, label: '¿Cómo funciona un Transformer?', id: 'transformer-ninos' },
-      { num: 10, label: 'Arquitectura MoE', id: 'moe' },
-      { num: 11, label: '¿Cómo funciona MoE?', id: 'moe-ninos' },
       { num: 12, label: '¿Qué es un LLM?', id: 'llm' },
-      { num: 13, label: 'Parámetros de configuración', id: 'parametros' },
+      { num: 13, label: 'Arquitecturas', id: 'arquitecturas' },
+      { num: 14, label: '¿Cómo funciona un Transformer?', id: 'transformer-ninos' },
+      { num: 15, label: 'Arquitectura MoE', id: 'moe' },
+      { num: 16, label: '¿Cómo funciona MoE?', id: 'moe-ninos' },
+      { num: 17, label: 'Parámetros de configuración', id: 'parametros' },
+      { num: 18, label: 'Modelos de razonamiento', id: 'razonamiento' },
+      { num: 19, label: 'Open source vs propietario', id: 'open-vs-closed' },
+      { num: 20, label: 'Destilación de modelos', id: 'distilacion' },
+      { num: 21, label: 'Inferencia optimizada', id: 'inferencia-optimizada' },
     ],
   },
   {
     title: 'Uso práctico',
+    sectionSlide: 'sec-uso-practico',
     items: [
-      { num: 14, label: 'Prompt engineering', id: 'prompt-engineering' },
-      { num: 15, label: 'Modelos frontier', id: 'frontier' },
-      { num: 16, label: 'Hugging Face + LM Studio', id: 'huggingface-lmstudio' },
-      { num: 17, label: 'RAG', id: 'rag' },
-      { num: 18, label: 'Bases de datos vectoriales', id: 'vectordb' },
+      { num: 23, label: 'Prompt engineering', id: 'prompt-engineering' },
+      { num: 24, label: 'Alucinaciones', id: 'alucinaciones' },
+      { num: 25, label: 'Structured output / JSON mode', id: 'structured-output' },
+      { num: 26, label: 'Visión y multimodalidad', id: 'vision-multimodal' },
+      { num: 27, label: 'Modelos frontier', id: 'frontier' },
+      { num: 28, label: 'Hugging Face + LM Studio', id: 'huggingface-lmstudio' },
+      { num: 29, label: 'RAG', id: 'rag' },
+      { num: 30, label: '¿Prompt, RAG o fine-tuning?', id: 'cuando-que-tecnica' },
+      { num: 31, label: 'Fine-tuning en la práctica', id: 'fine-tuning-practico' },
+      { num: 32, label: 'Datos sintéticos', id: 'datos-sinteticos' },
+      { num: 33, label: 'Bases de datos vectoriales', id: 'vectordb' },
+      { num: 34, label: 'Prompt caching', id: 'prompt-caching' },
+      { num: 35, label: 'Context window en la práctica', id: 'context-window-practica' },
+      { num: 36, label: 'API Hello World', id: 'api-hello-world' },
+      { num: 37, label: 'Streaming', id: 'streaming' },
     ],
   },
   {
     title: 'Agentes y orquestación',
+    sectionSlide: 'sec-agentes',
     items: [
-      { num: 19, label: '¿Qué es un agente?', id: 'agentes' },
-      { num: 20, label: 'Contexto y memoria', id: 'contexto-memoria' },
-      { num: 21, label: 'Arquitecturas de agentes', id: 'arquitecturas-agentes' },
-      { num: 22, label: 'Patrones de diseño', id: 'patrones-agentes' },
-      { num: 23, label: 'Multi-modelo', id: 'multi-modelo' },
-      { num: 24, label: 'Patrones de orquestación', id: 'patrones-orquestacion' },
-      { num: 25, label: 'Sistemas de orquestación', id: 'orquestacion' },
-      { num: 26, label: 'Orquestadores y ADKs', id: 'orquestadores-adks' },
-      { num: 27, label: 'Claude Code (estructura)', id: 'claude-code-estructura' },
-      { num: 28, label: 'MCP', id: 'mcp' },
+      { num: 39, label: 'Agente vs prompt', id: 'agente-vs-prompt' },
+      { num: 40, label: '¿Qué es un agente?', id: 'agentes' },
+      { num: 41, label: 'Contexto y memoria', id: 'contexto-memoria' },
+      { num: 42, label: 'Function calling (tool use)', id: 'function-calling' },
+      { num: 43, label: 'Arquitecturas de agentes', id: 'arquitecturas-agentes' },
+      { num: 44, label: 'Patrones de diseño', id: 'patrones-agentes' },
+      { num: 45, label: 'Multi-modelo', id: 'multi-modelo' },
+      { num: 46, label: 'Patrones de orquestación', id: 'patrones-orquestacion' },
+      { num: 47, label: 'Ejemplo: agente con tools', id: 'ejemplo-codigo-agente' },
+      { num: 48, label: 'Sistemas de orquestación', id: 'orquestacion' },
+      { num: 49, label: 'Orquestadores y ADKs', id: 'orquestadores-adks' },
+      { num: 50, label: 'Claude Code (estructura)', id: 'claude-code-estructura' },
+      { num: 51, label: 'MCP', id: 'mcp' },
+      { num: 52, label: 'Computer Use y Browser Use', id: 'computer-use' },
+      { num: 53, label: 'A2A (Agent-to-Agent)', id: 'a2a' },
+      { num: 54, label: 'Human-in-the-loop', id: 'human-in-the-loop' },
     ],
   },
   {
     title: 'Realidad del ingeniero',
+    sectionSlide: 'sec-realidad',
     items: [
-      { num: 29, label: 'IDE web vs terminal', id: 'ide-terminal' },
-      { num: 30, label: 'Agente vs prompt', id: 'agente-vs-prompt' },
-      { num: 31, label: 'Seguridad y riesgos', id: 'seguridad' },
-      { num: 32, label: 'Tokens y coste', id: 'costes' },
-      { num: 33, label: 'Cambio de paradigma', id: 'cambio-paradigma' },
-      { num: 34, label: 'Recursos', id: 'recursos' },
-      { num: 35, label: 'Demo', id: 'demo' },
+      { num: 56, label: 'IDE web vs terminal', id: 'ide-terminal' },
+      { num: 57, label: 'Comparativa coding assistants', id: 'comparativa-coding' },
+      { num: 58, label: 'IA en CI/CD', id: 'ai-cicd' },
+      { num: 59, label: 'Seguridad y riesgos', id: 'seguridad' },
+      { num: 60, label: 'Guardrails en la práctica', id: 'guardrails' },
+      { num: 61, label: 'Testing adversarial y red teaming', id: 'testing-adversarial' },
+      { num: 62, label: 'EU AI Act y compliance', id: 'eu-ai-act' },
+      { num: 63, label: 'Tokens y coste', id: 'costes' },
+      { num: 64, label: 'Observabilidad de LLMs', id: 'observabilidad' },
+      { num: 65, label: 'Evaluaciones (evals)', id: 'evals' },
+      { num: 66, label: 'Cambio de paradigma', id: 'cambio-paradigma' },
+      { num: 67, label: 'Recursos', id: 'recursos' },
+      { num: 68, label: 'Demo', id: 'demo' },
     ],
   },
 ];
@@ -79,7 +112,7 @@ const tocSections = [
       </div>
       {tocSections.map((section) => (
         <div class="toc-section">
-          <p class="toc-section-title">{section.title}</p>
+          <button class="toc-section-title" data-goto={section.sectionSlide}>{section.title}</button>
           {section.items.map((item) => (
             <button class="toc-item" data-goto={item.id}>
               <span class="toc-num">{String(item.num).padStart(2, '0')}</span>
@@ -124,7 +157,7 @@ const tocSections = [
       const tocOverlay = document.getElementById('toc');
       const tocBtn = document.getElementById('toc-btn');
       const tocClose = document.getElementById('toc-close');
-      const tocItems = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('.toc-item'));
+      const tocItems = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('.toc-item, .toc-section-title'));
 
       let current = 0;
       const total = slides.length;
